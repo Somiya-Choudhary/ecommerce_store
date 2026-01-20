@@ -22,8 +22,11 @@ The project follows a layered structure:
 
 - **Routes** – define API endpoints
 - **Controllers** – handle HTTP request/response
+- **Middleware** – handle request validation and centralized error handling
 - **Models** – define domain entities
 - **Store** – acts as an in-memory persistence layer
+
+---
 
 ## Domain Models
 
@@ -32,3 +35,23 @@ The project follows a layered structure:
 - **Order** – immutable record created after checkout
 - **OrderItem** – snapshot of purchased product details
 - **Coupon** – represents Coupon (ACTIVE → USED)
+
+---
+
+## Endpoint
+
+### Cart – Add Items
+
+- **POST** `/api/cart/items`
+
+Adds a product to the user’s cart or updates the quantity if the product
+already exists.
+
+#### Request Body
+
+```json
+{
+  "userId": 1,
+  "productId": 3,
+  "quantity": 2
+}

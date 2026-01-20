@@ -26,5 +26,4 @@ export function seedProducts() {
   ];
 
   store.products.push(...products);
-  console.log("str",store)
 }
