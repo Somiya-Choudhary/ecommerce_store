@@ -1,8 +1,13 @@
 import express from "express";
 import cors from "cors";
 import healthRoutes from "./routes/health.routes.js";
+import { seedProducts, seedUsers } from "./store/seed.js";
 
 const app = express();
+
+// Store Initialized
+seedUsers();
+seedProducts();
 
 //middlewares
 app.use(cors());
@@ -10,6 +15,7 @@ app.use(express.json());
 
 // routes
 app.use("/api", healthRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
