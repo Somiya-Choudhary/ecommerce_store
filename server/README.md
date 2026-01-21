@@ -107,3 +107,33 @@ and total discount amount.
     "totalDiscountAmount": 300
 }
 ```
+
+### Admin – Generate Coupon
+
+- **POST** `/api/admin/coupon/generate`
+
+Generates a discount coupon if the current global order number satisfies
+the Nth-order condition.
+
+#### Behavior
+
+- Uses the total number of completed orders as the global order count
+- Generates a coupon only when the order count is a multiple of `COUPON_INTERVAL`
+- Returns an informative response when the condition is not satisfied
+- Allows generating multiple coupons for the same Nth order (admin-only behavior)
+
+#### Response (eligible)
+
+```json
+{
+  "eligible": true,
+  "currentOrderNumber": 10,
+  "coupon": {
+    "id": 3,
+    "code": "SAVE10-A1B2C3D4",
+    "discountPercent": 10,
+    "status": "ACTIVE",
+    "generatedAtOrder": 10
+  }
+}
+
