@@ -136,4 +136,36 @@ the Nth-order condition.
     "generatedAtOrder": 10
   }
 }
+```
+
+## Setup & Running the Application
+
+### Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm (comes with Node.js)
+
+---
+
+### Install Dependencies
+
+From the `server/` directory:
+
+```bash
+npm install
+```
+
+### Run App
+
+```bash
+npm run dev
+```
+
+The server will start on:http://localhost:5000
+
+### Run Tests
+
+```bash
+npm test
+```
 
