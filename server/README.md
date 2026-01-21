@@ -58,6 +58,7 @@ already exists.
   "productId": 3,
   "quantity": 2
 }
+```
 
 ### Checkout – Place Order
 
@@ -72,3 +73,37 @@ Creates an order from the user’s cart.
   "userId": 1,
   "couponCode": "SAVE10-AB12CD34" // Optional
 }
+```
+
+### Admin – Summary
+
+- **GET** `/api/admin/summary`
+
+Returns total items purchased, total purchase amount, list of discount codes,
+and total discount amount.
+
+#### Response
+
+```json
+{
+    "itemsPurchasedCount": 6,
+    "totalPurchaseAmount": 136700,
+    "discountCodes": [
+        {
+            "id": 1,
+            "code": "SAVE10-29990CE7",
+            "status": "ACTIVE",
+            "generatedAtOrder": 2,
+            "discountPercent": 10
+        },
+        {
+            "id": 2,
+            "code": "SAVE10-00574B19",
+            "status": "USED",
+            "generatedAtOrder": 4,
+            "discountPercent": 10
+        }
+    ],
+    "totalDiscountAmount": 300
+}
+```
