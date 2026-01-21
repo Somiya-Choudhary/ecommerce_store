@@ -1,4 +1,4 @@
-# Ecommerce Store API
+# Ecommerce Store
 
 ## Overview
 
@@ -25,6 +25,9 @@ The project follows a layered structure:
 - **Middleware** – handle request validation and centralized error handling
 - **Models** – define domain entities
 - **Store** – acts as an in-memory persistence layer
+- **Constants** – define shared constant values (e.g. coupon status)
+- **Config** – store configurable business parameters (e.g. discount percent, coupon interval)
+- **Utils** – contain reusable business logic (e.g. coupon generation)
 
 ---
 
@@ -54,4 +57,18 @@ already exists.
   "userId": 1,
   "productId": 3,
   "quantity": 2
+}
+
+### Checkout – Place Order
+
+- **POST** `/api/checkout`
+
+Creates an order from the user’s cart.
+
+#### Request Body (without coupon)
+
+```json
+{
+  "userId": 1,
+  "couponCode": "SAVE10-AB12CD34" // Optional
 }

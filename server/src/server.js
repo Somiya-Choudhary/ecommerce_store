@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import healthRoutes from "./routes/health.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
+import checkoutRoutes from "./routes/checkout.routes.js";
 import { seedProducts, seedUsers } from "./store/seed.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 
@@ -18,6 +19,7 @@ app.use(express.json());
 // routes
 app.use("/api", healthRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/checkout", checkoutRoutes);
 
 // error middleware
 app.use(errorHandler);

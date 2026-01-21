@@ -1,4 +1,5 @@
 import { COUPON_CONFIG } from "../config/coupon.config.js";
+import { COUPON_STATUS } from "../constants/couponStatus.js";
 
 // Domain model representing a discount coupon.
 // Coupon is generated as a business consequence of every Nth order.
@@ -9,6 +10,6 @@ export class Coupon {
     this.code = code;                   // string: unique coupon code
     this.discountPercent = COUPON_CONFIG.DISCOUNT_PERCENT; 
     this.generatedAtOrder = generatedAtOrder; // number
-    this.status = "ACTIVE";             // string: ACTIVE | USED
+    this.status = COUPON_STATUS.ACTIVE;             // string: ACTIVE | USED
   }
 }
