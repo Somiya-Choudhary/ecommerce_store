@@ -1,12 +1,12 @@
-
+import ProductList from "./components/ProductList";
 
 function App() {
 
   return (
-    <>
-      <h2>Ecommerce Store</h2>
-        
-    </>
+    <div style={{ padding: "20px" }}>
+      <h1>Ecommerce Store</h1>
+      <ProductList />
+    </div>
   )
 }
 
